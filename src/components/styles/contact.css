@@ -1,0 +1,23 @@
+.btn {
+  background-color: rgb(109, 109, 134);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: aliceblue;
+}
+
+.ReactModal__Body--open {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgb(255, 213, 237);
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+.contact {
+  margin: auto auto;
+  width: 300px;
+  height: 50px;
+}
