@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import NavBar from "./components/Navbar/NavBar";
 
-const Header = lazy(() => import("./components/Header"));
 const Hero = lazy(() => import("./components/Hero"));
 const Project = lazy(() => import("./components/Project"));
 const Skill = lazy(() => import("./components/Skill"));
@@ -21,7 +20,7 @@ function App() {
     >
       <div className="App container my-10 mx-auto max-w-screen-lg bg-black">
         <NavBar />
-        {/* <Header /> */}
+
         <main>
           <Hero />
           <Project />
