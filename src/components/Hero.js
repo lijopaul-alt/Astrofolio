@@ -3,7 +3,7 @@ import Lottie from "lottie-web";
 import animate from "lottie-web";
 import classes from "../components/styles/Hero.module.css";
 
-const Hero = () => {
+const Hero = (props) => {
   const container = useRef(null);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Hero = () => {
         </p>
         <button className={classes.btn}>
           <a href="https://drive.google.com/file/d/1AphwY6Cu_KgDaP3il-8j-RmJpdpa8BRJ/view?usp=sharing">
-            View CV
+            View Resume
           </a>
         </button>
       </div>

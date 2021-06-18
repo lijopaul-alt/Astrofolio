@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import fire from "../firebase";
-
+import "react-responsive-modal/styles.css";
+import { Modal } from "react-responsive-modal";
 import "../components/styles/contact.css";
 
 const Contact = () => {
   const [user, setUser] = useState({ name: "", email: "", message: "" });
+  const [open, setOpen] = useState(false);
 
   const inputHandler = (e) => {
     setUser({
@@ -21,23 +23,48 @@ const Contact = () => {
     });
   };
 
+  const onOpenModal = () => {
+    setOpen(true);
+  };
+
+  const onCloseModal = () => {
+    setOpen(false);
+  };
+
   const submitHandler = (obj, e) => {
     e.preventDefault();
 
     if (user.name !== "" && user.email !== "" && user.message !== "") {
       fire.child("Message").push(obj);
       clearInputs();
-      alert("your message has been sent successfully");
+
+      onOpenModal();
     } else {
-      alert("please fill all fields");
+      alert("please enter all the field inputs");
     }
   };
 
   return (
     <section className="my-28" id="contact">
+      <Modal
+        open={open}
+        center
+        classNames={{
+          modal: "customModal",
+        }}
+        showCloseIcon={false}
+        onClose={onCloseModal}
+      >
+        <div className="modal">
+          <h2>
+            your message has been sent succesfully{" "}
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </h2>
+        </div>
+      </Modal>
       <header className="px-5 text-2xl font-bold pt-10">
         <h2>Contact Me</h2>
-        <p className="text-base font-thin">I'd love to hear your thoughts!</p>
+        <p className="text-base font-thin">I'd love to hear your thoughts! </p>
       </header>
       <div className="md:mx-6 flex flex-col flex-wrap md:flex-row justify-between">
         <div className="md:w-6/12 md:px-0 p-5 my-5">
