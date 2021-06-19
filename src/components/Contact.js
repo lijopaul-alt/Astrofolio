@@ -4,7 +4,7 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import "../components/styles/contact.css";
 
-const Contact = () => {
+const Contact = (props) => {
   const [user, setUser] = useState({ name: "", email: "", message: "" });
   const [open, setOpen] = useState(false);
 
@@ -54,6 +54,7 @@ const Contact = () => {
         }}
         showCloseIcon={false}
         onClose={onCloseModal}
+        animationDuration={0}
       >
         <div className="modal">
           <h2>
@@ -86,16 +87,20 @@ const Contact = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="mb-2 flex flex-row items-end border border-gray-500 p-2 rounded-lg text-sm">
-                  <img
-                    src="./images/icons/linkedin.svg"
-                    alt=""
-                    width="24px"
-                    height="24px"
-                    className="mr-1"
-                  />
-                  LinkedIn
-                </span>
+                {props.isDarkMode ? (
+                  <span className="mb-2 flex flex-row items-end border border-gray-500 p-2 rounded-lg text-sm">
+                    <img
+                      src="./images/icons/linkedin.svg"
+                      alt=""
+                      width="24px"
+                      height="24px"
+                      className="mr-1"
+                    />
+                    LinkedIn
+                  </span>
+                ) : (
+                  <button className="btn"> LinkedIn</button>
+                )}
               </a>
             </div>
 
@@ -105,24 +110,38 @@ const Contact = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span className="mb-2 flex flex-row items-end border border-gray-500 p-2 rounded-lg text-sm">
-                  <img
-                    src="./images/icons/github.svg"
-                    alt=""
-                    width="24px"
-                    height="24px"
-                    className="mr-1"
-                  />
-                  GitHub
-                </span>
+                {props.isDarkMode ? (
+                  <span className="mb-2 flex flex-row items-end border border-gray-500 p-2 rounded-lg text-sm">
+                    <img
+                      src="./images/icons/github.svg"
+                      alt=""
+                      width="24px"
+                      height="24px"
+                      className="mr-1"
+                    />
+                    GitHub
+                  </span>
+                ) : (
+                  <button className="btn">GitHub</button>
+                )}
               </a>
             </div>
           </div>
         </div>
 
-        <div className="bg-gray px-5 py-10 md:py-8 sm:p-8 my-2 md:rounded-lg shadow-lg  justify-between w-full  md:w-6/12 ">
+        <div
+          className={
+            props.isDarkMode
+              ? "bg-gray px-5 py-10 md:py-8 sm:p-8 my-2 md:rounded-lg shadow-lg  justify-between w-full  md:w-6/12 "
+              : " px-5 py-10 md:py-8 sm:p-8 my-2 md:rounded-lg shadow-lg  justify-between w-full  md:w-6/12 "
+          }
+        >
           <form
-            className="flex flex-col space-y-3 m-auto w-full"
+            className={
+              props.isDarkMode
+                ? "flex flex-col space-y-3 m-auto w-full"
+                : "flex flex-col space-y-3 m-auto w-full white"
+            }
             name="contact"
             method="post"
             onSubmit={(e) => submitHandler(user, e)}
@@ -159,7 +178,11 @@ const Contact = () => {
             ></textarea>
             <button
               type="submit"
-              className="border border-gray-500 p-2 rounded-lg w-auto mr-auto shadow-md"
+              className={
+                props.isDarkMode
+                  ? "border border-gray-500 p-2 rounded-lg w-auto mr-auto shadow-md"
+                  : "border border-gray-500 p-2 rounded-lg w-auto mr-auto shadow-md btn"
+              }
             >
               Send Message
             </button>

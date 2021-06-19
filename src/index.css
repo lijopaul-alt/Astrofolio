@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+.body {
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -16,26 +16,15 @@ body {
   font-weight: 400;
   text-rendering: optimizelegibility;
 }
-
+.toggle {
+  margin-left: 20px;
+  height: 10px;
+}
 html {
   scroll-behavior: smooth;
 }
 
-h1 {
-  background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #a162e8 0%,
-    #f7ce68 46%,
-    #85ffbd 100%
-  );
-
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-h3 {
+.h3 {
   font-size: 1.4rem !important;
   background-color: #8e9ffa;
   background-image: linear-gradient(
@@ -75,13 +64,6 @@ input {
     linear-gradient(43deg, #a162e8 0%, #f7ce68 46%, #85ffbd 100%);
   background-origin: border-box;
   background-clip: content-box, border-box;
-}
-
-input,
-textarea {
-  background: #121212c5;
-  border-radius: 0.3rem;
-  border: 1px solid transparent;
 }
 
 *:focus:not(.focus-visible) {
@@ -186,5 +168,31 @@ textarea {
     -webkit-transform: perspective(140px) rotateY(180deg);
     transform: perspective(140px) rotateY(180deg);
     opacity: 0;
+  }
+}
+
+.bodyDark {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #eee;
+  color: black;
+  font-size: 1rem;
+  font-family: Roboto, Arial, sans-serif;
+  line-height: 1.5rem;
+  font-weight: 400;
+  text-rendering: optimizelegibility;
+}
+
+.container.light {
+  background-color: #eee;
+}
+.img {
+  color: black;
+}
+@media screen and (max-width: 700px) {
+  .patterns {
+    display: none;
   }
 }

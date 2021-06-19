@@ -11,14 +11,33 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <h1 className="navbar-logo">ASTROFOLIO</h1>
+        <h1
+          className={
+            this.props.isDarkMode ? "navbar-logo dark" : "navbar-logo light"
+          }
+        >
+          {`<ASTROFOLIO>`}
+        </h1>
         <div className="menu-icon" onClick={this.handleClick}>
-          <i className={this.state.clicked ? "fa fa-times" : "fa fa-bars"}></i>
+          <i
+            className={
+              this.state.clicked
+                ? this.props.isDarkMode
+                  ? "fa fa-times "
+                  : "fa fa-times light"
+                : "fa fa-bars"
+            }
+          ></i>
         </div>
         <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
           {menuItems.map((item, index) => (
-            <li key={index}>
-              <a className={item.cName} href={item.url}>
+            <li key={index} onClick={this.handleClick}>
+              <a
+                className={
+                  this.props.isDarkMode ? item.cName : "nav-links-light"
+                }
+                href={item.url}
+              >
                 {" "}
                 {item.title}
               </a>

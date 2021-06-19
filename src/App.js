@@ -1,5 +1,6 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import NavBar from "./components/Navbar/NavBar";
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const Hero = lazy(() => import("./components/Hero"));
 const Project = lazy(() => import("./components/Project"));
@@ -7,6 +8,19 @@ const Skill = lazy(() => import("./components/Skill"));
 const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("body");
+      document.body.classList.remove("bodyDark");
+    }
+    if (!isDarkMode) {
+      document.body.classList.remove("body");
+      document.body.classList.add("bodyDark");
+    }
+  }, [isDarkMode]);
+
   return (
     <Suspense
       fallback={
@@ -18,14 +32,27 @@ function App() {
         </div>
       }
     >
-      <div className="App  container my-10 mx-auto max-w-screen-lg bg-black">
-        <NavBar />
+      <div
+        className={
+          isDarkMode
+            ? "App  container my-10 mx-auto max-w-screen-lg bg-black"
+            : "App  container my-10 mx-auto max-w-screen-lg light"
+        }
+      >
+        <NavBar isDarkMode={isDarkMode} />
 
         <main>
-          <Hero />
-          <Project />
-          <Skill />
-          <Contact />
+          <DarkModeToggle
+            onChange={setIsDarkMode}
+            checked={isDarkMode}
+            size={40}
+            className="toggle"
+            speed={1}
+          />
+          <Hero isDarkMode={isDarkMode} />
+          <Project isDarkMode={isDarkMode} />
+          <Skill isDarkMode={isDarkMode} />
+          <Contact isDarkMode={isDarkMode} />
         </main>
       </div>
     </Suspense>

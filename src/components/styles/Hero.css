@@ -1,3 +1,17 @@
+.h1 {
+  background-color: #142994;
+  background-image: linear-gradient(
+    43deg,
+    #a162e8 0%,
+    #f7ce68 46%,
+    #85ffbd 100%
+  );
+
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .wrapper {
   display: inline-flex;
 }
@@ -28,6 +42,30 @@
   left: 0;
   animation: typing 4s steps(10) infinite;
 }
+
+.wrapper .dynamictxtlight {
+  margin-left: 15px;
+}
+
+.dynamictxtlight li {
+  color: #fc6d6d;
+  list-style-type: none;
+  font-size: 30px;
+}
+.dynamictxtlight li span {
+  position: absolute;
+}
+
+.dynamictxtlight li span::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #eee;
+  border-left: 2px solid #fc6d6d;
+  left: 0;
+  animation: typing 4s steps(10) infinite;
+}
 .btn {
   background-color: #ff0022;
   padding: 5px 12px;
@@ -37,6 +75,20 @@
   border: none;
 }
 .btn:hover {
+  background-color: #731dd8;
+  padding: 6px 13px;
+}
+
+.btnlight {
+  background-color: #3185fc;
+  padding: 5px 12px;
+  border-radius: 10%;
+  transition: 0.5s ease;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+.btnlight:hover {
   background-color: #731dd8;
   padding: 6px 13px;
 }
@@ -85,7 +137,33 @@
     left: 0;
     animation: typing 4s steps(10) infinite;
   }
+  .wrapper .dynamictxtlight {
+    margin-left: 15px;
+  }
+  .dynamictxtlight li {
+    color: #fc6d6d;
+    list-style-type: none;
+    font-size: 20px;
+  }
+  .dynamictxtlight li span {
+    position: absolute;
+  }
+
+  .dynamictxtlight li span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #eee;
+    border-left: 2px solid #fc6d6d;
+    left: 0;
+    animation: typing 4s steps(10) infinite;
+  }
   .Hero {
     display: none;
+  }
+  .toggle {
+    position: relative;
+    bottom: 30px;
   }
 }

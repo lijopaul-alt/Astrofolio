@@ -31,3 +31,60 @@
 .customModal {
   border-radius: 2%;
 }
+
+input,
+textarea {
+  background: #121212c5;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+}
+
+.white input {
+  background: #fff;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+}
+.white textarea {
+  background: #fff;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+}
+
+.white .gradient:focus {
+  border: 1px solid black;
+  background-image: none;
+  background-origin: border-box;
+  background-clip: none;
+}
+.btn {
+  background-color: #3185fc;
+  padding: 5px 12px;
+  border-radius: 10%;
+  transition: 0.5s ease;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #731dd8;
+}
+
+@media screen and (max-width: 700px) {
+  .customModal {
+    width: 300px;
+    height: 200px;
+    background-attachment: fixed;
+  }
+  .btn {
+    background-color: #3185fc;
+    padding: 5px 12px;
+    border-radius: 10%;
+    transition: 0.5s ease;
+    outline: none;
+    border: none;
+    color: #fff;
+  }
+  .btn:hover {
+    background-color: #731dd8;
+  }
+}
